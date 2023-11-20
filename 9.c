@@ -1,35 +1,23 @@
 #include <stdio.h>
+#define MAX_SIZE 100
 
-void mergeStrings(const char *firstString, const char *secondString, char *result) {
-    int i = 0, j = 0;
+int main()
+{
+    char str1[MAX_SIZE], str2[MAX_SIZE];
+    int i, j;
 
-    while (firstString[i] != '\0') {
-        result[i] = firstString[i];
-        i++;
-    }
+    printf("Enter first string: ");
+    gets(str1);
+    printf("Enter second string: ");
+    gets(str2);
 
-    while (secondString[j] != '\0') {
-        result[i] = secondString[j];
-        i++;
-        j++;
-    }
+    i = -1;
+    while (str1[++i]);
 
-    result[i] = '\0';
-}
+    j = 0;
+    while (str1[i++] = str2[j++]);
 
-int main() {
-    char firstString[100], secondString[100];
-    char mergedString[200];
-
-    printf("Enter the first string: ");
-    scanf("%s", firstString);
-
-    printf("Enter the second string: ");
-    scanf("%s", secondString);
-
-    mergeStrings(firstString, secondString, mergedString);
-
-    printf("Merged string: %s\n", mergedString);
+    printf("Concatenated string = %s", str1);
 
     return 0;
 }
