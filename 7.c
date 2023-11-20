@@ -1,33 +1,31 @@
 #include <stdio.h>
+#define MAX_SIZE 100 // Maximum string size
 
-void concatenateStrings(char firstString[], char secondString[]) {
-    int i = 0, j = 0;
+int main()
+{
+    char str1[MAX_SIZE], str2[MAX_SIZE];
+    int i, j;
 
-    while (firstString[i] != '\0') {
+    printf("Enter first string: ");
+    gets(str1);
+    printf("Enter second string: ");
+    gets(str2);
+
+    i = 0;
+    while (str1[i] != '\0') {
         i++;
     }
 
-    while (secondString[j] != '\0') {
-        firstString[i] = secondString[j];
+    j = 0;
+    while (str2[j] != '\0') {
+        str1[i] = str2[j];
         i++;
         j++;
     }
 
-    firstString[i] = '\0';
-}
+    str1[i] = '\0';
 
-int main() {
-    char firstString[100], secondString[100];
-
-    printf("Enter the first string: ");
-    gets(firstString);
-
-    printf("Enter the second string: ");
-    gets(secondString);
-
-    concatenateStrings(firstString, secondString);
-
-    printf("Concatenated string: %s\n", firstString);
+    printf("Concatenated string = %s", str1);
 
     return 0;
 }
