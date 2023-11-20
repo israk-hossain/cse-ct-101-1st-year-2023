@@ -1,23 +1,48 @@
 #include <stdio.h>
 #include <string.h>
+#define MAX_SIZE 100
 
-int main() {
-    char inputString[100];
+int main()
+{
+    char str[100], reverse[100];
+    int len, i, index, wordStart, wordEnd;
 
-    printf("Enter a string: ");
-    fgets(inputString, sizeof(inputString), stdin);
+    printf("Enter any string: ");
+    gets(str);
 
-    inputString[strcspn(inputString, "\n")] = '\0';
+    len = strlen(str);
+    index = 0;
 
-    int length = strlen(inputString);
+    wordStart = len - 1;
+    wordEnd = len - 1;
 
-    for (int i = 0; i < length / 2; i++) {
-        char temp = inputString[i];
-        inputString[i] = inputString[length - i - 1];
-        inputString[length - i - 1] = temp;
+    while (wordStart > 0)
+    {
+        if (str[wordStart] == ' ')
+        {
+            i = wordStart + 1;
+            while (i <= wordEnd)
+            {
+                reverse[index] = str[i];
+                i++;
+                index++;
+            }
+            reverse[index++] = ' ';
+            wordEnd = wordStart - 1;
+        }
+        wordStart--;
     }
 
-    printf("Reversed string: %s\n", inputString);
+    for (i = 0; i <= wordEnd; i++)
+    {
+        reverse[index] = str[i];
+        index++;
+    }
+
+    reverse[index] = '\0';
+
+    printf("Original string \n%s\n\n", str);
+    printf("Reverse ordered words \n%s", reverse);
 
     return 0;
 }
