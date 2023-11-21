@@ -1,28 +1,13 @@
+#include<stdio.h>
+int main(){
 
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-    char inputString[100], stringWithoutSpaces[100];
-    int i, j;
-
-    printf("Enter a string with spaces: ");
-    fgets(inputString, sizeof(inputString), stdin);
-
-    int length = strlen(inputString);
-
-    j = 0;
-
-    for (i = 0; i < length; i++) {
-        if (inputString[i] != ' ') {
-            stringWithoutSpaces[j] = inputString[i];
-            j++;
-        }
+char ch[20];
+int i;
+printf("Enter The Value :");
+gets(ch);
+for(i=0;ch[i]='\0';i++){
+    if(ch[i]!=' '){
+        printf("%c",ch[i]);
     }
-
-    stringWithoutSpaces[j] = '\0';
-
-    printf("String without spaces: %s", stringWithoutSpaces);
-
-    return 0;
+}
 }
